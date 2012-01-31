@@ -1,4 +1,8 @@
 Identity::Application.routes.draw do
+  get "service/index"
+
+  post 'namespace/:id' => 'namespace#add'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -25,6 +29,12 @@ Identity::Application.routes.draw do
   #     end
   #   end
 
+  #resource :namespace do
+  #  member do
+  #    post 'add'
+  #  end
+  #end
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -48,7 +58,7 @@ Identity::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "service#index"
+  root :to => "service#index", as: 'service'
 
   # See how all your routes lay out with "rake routes"
 
