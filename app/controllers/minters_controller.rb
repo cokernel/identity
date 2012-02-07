@@ -1,3 +1,5 @@
+require 'noid'
+
 class MintersController < ApplicationController
   # GET /minters
   # GET /minters.json
@@ -40,6 +42,7 @@ class MintersController < ApplicationController
   # POST /minters
   # POST /minters.json
   def create
+    #template = params[:minter] # [:template]
     @minter = Minter.new(params[:minter])
 
     respond_to do |format|
