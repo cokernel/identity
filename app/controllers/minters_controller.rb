@@ -1,5 +1,3 @@
-require 'noid'
-
 class MintersController < ApplicationController
   # GET /minters
   # GET /minters.json
@@ -34,16 +32,12 @@ class MintersController < ApplicationController
     end
   end
 
-  # GET /minters/1/edit
-  def edit
-    @minter = Minter.find(params[:id])
-  end
-
   # POST /minters
   # POST /minters.json
   def create
-    #template = params[:minter] # [:template]
-    @minter = Minter.new(params[:minter])
+    template = params[:minter][:template]
+    frozen_minter = Marshal.dump(Noid::Minter.new :template => template)
+    @minter = Minter.new({:template => template, :frozen_minter => frozen_minter})
 
     respond_to do |format|
       if @minter.save
@@ -53,23 +47,7 @@ class MintersController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @minter.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PUT /minters/1
-  # PUT /minters/1.json
-  def update
-    @minter = Minter.find(params[:id])
-
-    respond_to do |format|
-      if @minter.update_attributes(params[:minter])
-        format.html { redirect_to @minter, notice: 'Minter was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @minter.errors, status: :unprocessable_entity }
-      end
-    end
+    end 
   end
 
   # DELETE /minters/1

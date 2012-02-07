@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120206205436) do
+ActiveRecord::Schema.define(:version => 20120207151607) do
+
+  create_table "minters", :force => true do |t|
+    t.string   "template"
+    t.string   "frozen_minter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "namespaces", :force => true do |t|
     t.string   "identifier"

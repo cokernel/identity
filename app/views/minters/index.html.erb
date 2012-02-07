@@ -3,8 +3,6 @@
 <table>
   <tr>
     <th>Template</th>
-    <th>Frozen minter</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -12,9 +10,7 @@
 <% @minters.each do |minter| %>
   <tr>
     <td><%= minter.template %></td>
-    <td><%= minter.frozen_minter %></td>
     <td><%= link_to 'Show', minter %></td>
-    <td><%= link_to 'Edit', edit_minter_path(minter) %></td>
     <td><%= link_to 'Destroy', minter, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
