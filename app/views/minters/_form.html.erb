@@ -1,0 +1,25 @@
+<%= form_for(@minter) do |f| %>
+  <% if @minter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@minter.errors.count, "error") %> prohibited this minter from being saved:</h2>
+
+      <ul>
+      <% @minter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :template %><br />
+    <%= f.text_field :template %>
+  </div>
+  <div class="field">
+    <%= f.label :frozen_minter %><br />
+    <%= f.text_field :frozen_minter %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

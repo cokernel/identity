@@ -1,4 +1,6 @@
 Identity::Application.routes.draw do
+  resources :minters
+
   resources :namespaces
 
   get "service/index"
