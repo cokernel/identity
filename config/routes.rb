@@ -1,4 +1,6 @@
 Identity::Application.routes.draw do
+  resources :namespaces
+
   get "service/index"
 
   post 'namespace/:id' => 'namespace#add'

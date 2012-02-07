@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @namespace.identifier %>
+</p>
+
+<p>
+  <b>Creation date:</b>
+  <%= @namespace.creation_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_namespace_path(@namespace) %> |
+<%= link_to 'Back', namespaces_path %>
